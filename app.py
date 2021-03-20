@@ -52,9 +52,10 @@ def handleText(client,message):
     client.send_message(chat_id=message.chat.id,
                         text="Uploading...")
     for doc in arr:
+        if doc!=".about":
 
-        app.send_document(chat_id=message.chat.id, document=WDIR+"/"+doc, progress=progress)
-        os.remove(WDIR+"/"+doc)
+            app.send_document(chat_id=message.chat.id, document=WDIR+"/"+doc, progress=progress)
+            os.remove(WDIR+"/"+doc)
 
     client.send_message(chat_id=message.chat.id,
                         text="Finished")
